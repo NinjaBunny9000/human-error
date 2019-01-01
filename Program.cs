@@ -6,8 +6,7 @@ namespace human_error
 {
 	class Program
 	{
-		static void Main(string[] args)
-		{
+		static void Main(string[] args) {
 			// Engine init
 			Engine game = new Engine();
 			
@@ -23,7 +22,6 @@ namespace human_error
 
 		public IntPtr win;  
 		public IntPtr ren;  
-
 
 		// constructurator
 		public Renderator() {
@@ -41,22 +39,14 @@ namespace human_error
 
 		// called once per update/frame/tick. draws text buffer to the console'
 		public void render() {
-			// TODO clear the screen
-			// Console.Clear();
-
-			// print each line of the text buffer
-			// for ( int i = 0; i < 100 ; i++) {
-			// 	Console.Write(screen[i]);
-			// 	if ( i % 10 == 9) // xD
-			// 		Console.Write("\n");
-			// }
+			SDL.SDL_SetRenderDrawColor(ren,255,255,255,255);
+			SDL.SDL_RenderClear(ren);
+			SDL.SDL_SetRenderDrawColor(ren,200,20,255,255);
+			SDL.SDL_RenderDrawLine(ren,0,0,1280,720);
 			SDL.SDL_RenderPresent(ren);
-			// clear the text buffer to spaces (blank it out betch)
-			// for (int i = 0; i < screen.Length; i++) {
-			// 	screen[i] = ' ';
-			// }
 		}
 	}
+
 
 	class GameObject {
 
@@ -77,6 +67,7 @@ namespace human_error
 		}
 	}
 
+
 	class Engine {
 
 		public Renderator renderator = new Renderator();
@@ -89,9 +80,6 @@ namespace human_error
 
 		// Constructurator
 		public Engine() {
-			// TODO inheritancy thingies????
-			// TODO needs to be populated with actual GameObject(s) (and not dicks or nips)
-			// (dependancy injection) self.objects = [DickObject(self), NipsObject(self)]
 			gameObjects.Add(new DickObject(this));
 			gameObjects.Add(new TiddyObject(this));
 		}
@@ -125,11 +113,12 @@ namespace human_error
 					}
 				}
 				this.update();
-				// this.render(); 
+				this.render(); 
 			}
 			 
 		}
 	}
+
 
 	class DickObject : GameObject {
 		
@@ -150,6 +139,7 @@ namespace human_error
 			engine.renderator.drawAussieChar('~',7,3);
 		}
 	}
+
 
 	class TiddyObject : GameObject {
 		

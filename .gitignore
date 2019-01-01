@@ -1,2 +1,8 @@
 **/notes/**
 **/.vscode/**
+**/debug/**
+/bin/**
+/obj/**
+human_error.py
+SDL2.dll
+human-error.csproj

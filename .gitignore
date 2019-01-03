@@ -6,3 +6,4 @@
 human_error.py
 SDL2.dll
 human-error.csproj
+__pycache__/
